@@ -12,6 +12,8 @@
   display: flex;
   flex-direction: column;
   height: 400px;
+  max-width: 300px;
+  min-width: 200px;
 }
 
 .product-image-container{
@@ -43,9 +45,29 @@
 .product-rating-container img{
   width: 100px;
 }
-
+.product-rate-container{
+  font-family: Roboto, Arial;
+  font-size: 16px;
+  color: #017cb6;
+  margin-left: 10px;
+}
 .product-price-container{
+  font-family: Roboto, Arial;
+  color: rgb(33,33,33);
   font-weight: 700;
   margin-bottom: 10px;
   display: block;
 }
+
+
+.product-quantity-container select {
+  background-color: rgb(240, 240, 240);
+  color: rgb(33, 33, 33);
+  padding: 4px 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  border: 1px solid rgb(213, 217, 217);
+  font-family: Roboto, Arial;
+  font-size: 15px;
+  cursor: pointer;
+};
