@@ -70,8 +70,13 @@
   cursor: pointer;
 };
 
-.add-to-cart-button{
-  background-color: yellow;
-  color: black;
-  margin-top: 10px;
-}
+ .add-to-cart-button{
+  font-family: Roboto, Arial;
+  width: 100%;
+  padding: 8px;
+  border-radius: 50px;
+  color: (33,33,33);
+  background-color: rgb(255,216,20);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba( 213, 217, 217, 0.5);
+};
