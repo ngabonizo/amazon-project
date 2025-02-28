@@ -1,0 +1,17 @@
+.amazon-header{
+  background-color: #000000;
+  color: white;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  height: 60px;
+}
+
+.left-section {
+border: 2px solid red;
+width: 180 px;
+}
+.left-section .amazon-logo{
+border: 2px solid green;
+}
