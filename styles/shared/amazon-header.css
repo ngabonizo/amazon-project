@@ -1,17 +1,20 @@
 .amazon-header{
-  background-color: #000000;
+  background-color: rgb(19, 25, 33);
   color: white;
-  display:flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   position: fixed;
-  height: 60px;
+  
 }
 
-.left-section {
+.amazon-header .left-section {
 border: 2px solid red;
-width: 180 px;
+width: unset;
 }
-.left-section .amazon-logo{
+.amazon-header .middle-section{
 border: 2px solid green;
+}
+.amazon-header .right-section {
+  border: 2px solid blue;
 }
