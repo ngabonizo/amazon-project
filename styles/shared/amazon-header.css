@@ -4,16 +4,44 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
-  
+  padding-left: 15px;
+  padding-right: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
 }
 
 .amazon-header .left-section {
-border: 2px solid red;
 width: unset;
+height: 30px;
+}
+
+.left-section .amazon-logo{
+  width: 100px;
+  margin-top: 5px;
+  cursor: pointer;
+  padding-left: 10px;
 }
 .amazon-header .middle-section{
 border: 2px solid green;
+display: flex;
+margin-right: 10px;
+margin-left: 10px;
+flex: 1;
+max-width: 850px;
+}
+.amazon-header .search-icon {
+  background-color: rgb(254,189,105);
+  border: none;
+  width: 45px;
+  height: 40px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  flex-shrink: 0;
 }
 .amazon-header .right-section {
   border: 2px solid blue;
