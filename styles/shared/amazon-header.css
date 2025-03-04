@@ -54,7 +54,6 @@ max-width: 850px;
   border-bottom-right-radius: 4px;
   flex-shrink:0;
 }
-
 .amazon-header .search-icon{
   height: 22px;
   margin-left: 3px;
@@ -62,9 +61,59 @@ max-width: 850px;
   cursor: pointer;
 }
 .amazon-header .right-section {
-  border: 2px solid blue;
   width: 180px;
   flex-shrink: 0;
   display: flex;
   justify-content: right;
+}
+
+.right-section .orders-link {
+display: inline-block;
+color: white;
+cursor: pointer;
+padding: 6px;
+text-decoration: none;
+border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.right-section .returns-text{
+  font-family: Roboto, Arial;
+  font-size: 13px;
+  display: block;
+  font-size: 13px;
+}
+.right-section .orders-text{
+  font-family: roboto, Arial;
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.right-section .cart-link {
+color: white;
+display: flex;
+align-items:center;
+position: relative;
+}
+
+.right-section .cart-icon{
+  width: 50px;
+}
+
+.right-section .cart-quantity {
+  color: rgb(240, 136,4);
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  top: 3px; 
+  left: 25px;
+  text-align: center;
+}
+.right-section .cart-text {
+  font-family: sans-serif;
+ margin-top: 12px;
+ font-size: 17px;
+ font-weight: 500;
+ cursor: pointer;
+ color: white;
 }
