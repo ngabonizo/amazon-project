@@ -92,7 +92,7 @@ display: flex;
 align-items:center;
 position: relative;
 }
-.right-section .cart-icon {
+.right-section .cart-link{
   width: 50px;
 }
 .right-section .cart-quantity {
@@ -102,10 +102,14 @@ position: relative;
   position: absolute;
   top: 4px; 
   left: 25px;
+ 
   text-align: center;
 }
 .right-section .cart-text {
  margin-top: 12px;
  font-size: 15px;
  font-weight: 700;
+ cursor: pointer;
+ color: white;
+ 
 }
