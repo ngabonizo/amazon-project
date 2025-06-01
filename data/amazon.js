@@ -1,12 +1,10 @@
 let productHTML = '';
 
-
-//2.generate the HTML
 products.forEach((product) => {
-  
-productHTML+=
-`
-  <div class="product-container">
+
+  productHTML +=
+   `
+   <div class="product-container">
         <div class="product-image-container">
           <img class="product-image" src="${product.image}"></div>
         <div class="product-name-container">${product.name}</div>
@@ -32,18 +30,14 @@ productHTML+=
       <div class="added-to-cart-message"></div>
       <button class="add-to-cart-button">Add to Cart</button>
       </div>
-  `;
- console.log(productHTML);
-})
+  `
   
-
-
-
-//4.use dom to put html to page
-document.querySelector('.js-product-grid').innerHTML = productHTML;
-
-document.querySelectorAll('.add-to-cart-button').forEach((button) => {
-  button.addEventListener('click',() =>{
-    console.log('added product');
-  })
 });
+
+ document.querySelector('.js-grid-container').innerHTML = productHTML;
+
+ document.querySelectorAll('.js-add-to-cart-button').forEach((button) =>{
+  button.addEventListener('click',() => {
+    console.log('clicked')
+  })
+ })
