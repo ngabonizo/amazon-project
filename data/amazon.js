@@ -30,7 +30,7 @@ productHTML+=
         </select>
       </div>
       <div class="added-to-cart-message"></div>
-      <button class="add-to-cart-button">Add to Cart</button>
+      <button class="add-to-cart-button js-add-to-cart-button">Add to Cart</button>
       </div>
   `;
  console.log(productHTML);
