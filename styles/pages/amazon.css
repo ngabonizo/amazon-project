@@ -43,6 +43,20 @@
   margin-bottom: 20px;
 }
 
+.product-name-container{
+   overflow: hidden;
+   /* Required for WebKit (Chrome, Safari) */
+   display: -webkit-box;
+   /* Future-proofing for standardization */
+   display: box; 
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 2; /* WebKit implementation */
+  line-clamp: 2;
+  white-space: wrap;
+  margin-bottom: 5px;
+  height: 40px;
+}
 
 .product-rating-container{
   font-family: Roboto, Arial;
