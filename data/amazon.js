@@ -1,4 +1,6 @@
+import {cart} from './cart.js';/*if cart.js and amazon.js in different folders: '../data/cart.js' */
 let productHTML = '';
+
 
 products.forEach((product) => {
 
@@ -33,10 +35,7 @@ products.forEach((product) => {
   ` 
 });
 
-
-
  document.querySelector('.js-grid-container').innerHTML = productHTML;
-
 
  document.querySelectorAll('.js-add-to-cart-button').forEach((button) =>{
   button.addEventListener('click',() => {
