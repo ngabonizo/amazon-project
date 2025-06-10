@@ -40,13 +40,12 @@ document.querySelector('.js-grid-container').innerHTML = productHTML;
  
 function updateCartQuantity(){
  let cartQuantity = 0;
-
     cart.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
     });
-
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
+
 
  document.querySelectorAll('.js-add-to-cart-button').forEach((button) =>{
   button.addEventListener('click',() => {
@@ -56,5 +55,7 @@ function updateCartQuantity(){
     updateCartQuantity()
   })
  })
+
+ 
 
  
