@@ -94,6 +94,7 @@ color: white;
 display: flex;
 align-items:center;
 position: relative;
+text-decoration: none;
 }
 
 .right-section .cart-icon{
