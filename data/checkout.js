@@ -1,11 +1,13 @@
 import {cart} from './cart.js';
 import {products} from './products.js'
 
+ let cartSummaryHTML = '';
+
 cart.forEach((cartItem) => {
 // this is normalizing data: using the same products.js
-  const productId = cartItem.productId;
-  let matchingProduct; 
-  let cartSummaryHTML = '';
+   const productId = cartItem.productId;
+    let matchingProduct; 
+   
 
   products.forEach((product) => {
 
@@ -13,10 +15,12 @@ cart.forEach((cartItem) => {
       matchingProduct = product;
      }
   });
-
+ 
   // error: matchingProduct is not defined at js.28
 
- cartSummaryHTML += `<div class="cart-item-container">
+ cartSummaryHTML += `
+
+        <div class="cart-item-container">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -27,9 +31,9 @@ cart.forEach((cartItem) => {
 
               <div class="cart-item-details">
                 <div class="product-name">
-                  ${matchingProduct.name}
+                 ${matchingProduct.name}
                 </div>
-                <div class="product-price">$
+                <div class="product-price">
                   ${(matchingProduct.priceCents / 100).toFixed(2)}
                 </div>
                 <div class="product-quantity">
@@ -91,8 +95,8 @@ cart.forEach((cartItem) => {
               </div>
             </div>
           </div>
-  
-  `
+        
+  `;
 
   document.querySelector('.order-summary').innerHTML = cartSummaryHTML;
 })
