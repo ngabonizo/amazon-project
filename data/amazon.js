@@ -1,5 +1,6 @@
 import {cart, addToCart} from './cart.js';/*if cart.js and amazon.js in different folders: '../data/cart.js' */
 import {products} from './products.js';
+import {moneyFormat} from './utils/money.js';
 
 
 let productHTML = '';
@@ -15,7 +16,7 @@ products.forEach((product) => {
         <img src="images/ratings/rating-${product.rating.stars * 10}.png " class="product-rating-image">
         <div class="product-count">${product.rating.count}</div>
       </div>
-      <div class="product-price-container">$${product.priceCents / 100}</div>
+      <div class="product-price-container">$${moneyFormat(product.priceCents)}</div>
       <div class="product-quantity-container">
         <select class="select-button">
           <option value="1" selected>1</option>
