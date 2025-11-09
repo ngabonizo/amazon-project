@@ -1,23 +1,22 @@
 import {cart,removeFromCart} from './cart.js';
 import {products} from './products.js'
 import {moneyFormat} from './utils/money.js'
- let cartSummaryHTML = '';
 
+ let cartSummaryHTML = '';
+ 
 cart.forEach((cartItem) => {
 // this is normalizing data: using the same products.js
    const productId = cartItem.productId;
     let matchingProduct; 
    
-
   products.forEach((product) => {
 
      if(product.id === productId){
       matchingProduct = product;
-     }
+     }  
   });
- 
-  // error: matchingProduct is not defined at js.28
 
+ 
  cartSummaryHTML += `
 
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -106,7 +105,6 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
    removeFromCart(productId);
    
   const container = document.querySelector(`.js-cart-item-container-${productId}`);
-
   container.remove()
   })
 
