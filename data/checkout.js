@@ -1,4 +1,4 @@
-import {cart,removeFromCart} from './cart.js';
+import {cart,removeFromCart,updateDeliveryOption} from './cart.js';
 import {products} from './products.js'
 import {moneyFormat} from './utils/money.js';
 import {deliveryOptions} from './deliveryOptions.js';
@@ -19,16 +19,17 @@ cart.forEach((cartItem) => {
   });
 
   const deliveryOptionId = cartItem.deliveryOptionId; // make cart's deliverOption a global variable so that cartSummaryHTML can access it
-
   let deliveryOption;
-
+   
    deliveryOptions.forEach((option) => {
-    if(option.id === deliveryOptionId){
+    if(option.id === parseInt(deliveryOptionId)){
+     
       deliveryOption = option;
     }
   });
-
+ 
    let dateString = dayjs().add(deliveryOption.deliveryDays, 'days').format('dddd, MMMM D');
+   
 
  cartSummaryHTML += `
 
@@ -79,11 +80,6 @@ function deliveryOptionsHTML(matchingProduct,cartItem){
   let html = '';
 
   deliveryOptions.forEach((deliveryOption) => {
-  
-  // const today = dayjs();
-  // const deliveryDate = today.
-  //           add(deliveryOption.deliveryDays, 'days');
-  // const dateString = deliveryDate.format('dddd, MMMM D');
 
    let dateString = dayjs().add(deliveryOption.deliveryDays, 'days').format('dddd, MMMM D');
 
@@ -94,12 +90,15 @@ function deliveryOptionsHTML(matchingProduct,cartItem){
     priceString = `$${moneyFormat(deliveryOption.priceCents)} -`
   }
 
-const isChecked = deliveryOption.id === cartItem.deliveryOptionId;  
+const isChecked = deliveryOption.id === parseInt(cartItem.deliveryOptionId);  
 
  html +=
 `
-<div class="delivery-option">
-       <input type="radio"  ${isChecked ? 'checked' : ''}
+<div class="delivery-option"
+data-delivery-option-id="${deliveryOption.id}"
+data-product-id="${matchingProduct.id}"
+>
+       <input type="radio"  ${isChecked ? 'checked' : ' '}
         class="delivery-option-input"
         name="delivery-option-${matchingProduct.id}">
       <div>
@@ -130,6 +129,11 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
 
 })
 
-
-
-// DEBUGG Delivery option 'isChecked' variable
+document.querySelectorAll('.delivery-option').forEach((ele) => {
+   ele.addEventListener('click', () => {
+    // const deliveryOptionId = ele.dataset.deliveryOptionId;
+    // const productId = ele.dataset.productId;
+    const {deliveryOptionId, productId} = ele.dataset; //destructuring
+     updateDeliveryOption(deliveryOptionId, productId)
+   })
+})
