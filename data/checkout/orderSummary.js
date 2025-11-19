@@ -1,7 +1,9 @@
 import {cart,removeFromCart,updateDeliveryOption} from '../cart.js';
-import {products} from '../products.js'
+import {products,getProduct} from '../products.js'
 import {moneyFormat} from '../utils/money.js';
-import {deliveryOptions} from '../deliveryOptions.js';
+import {deliveryOptions, getDeliveryOption} from '../deliveryOptions.js';
+import {renderPaymentSummary} from '../checkout/paymentSummary.js'
+
 
 
 export function renderOrderSummary() {
@@ -10,26 +12,27 @@ export function renderOrderSummary() {
     cart.forEach((cartItem) => {
     // this is normalizing data: using the same products.js
       const productId = cartItem.productId;
-        let matchingProduct; 
+      const matchingProduct = getProduct(productId);
       
-      products.forEach((product) => {
+      // products.forEach((product) => {
 
-        if(product.id === productId){
-          matchingProduct = product;
-        }  
-      });
+      //   if(product.id === productId){
+      //     matchingProduct = getProduct(productId);
+      //   }  
+      // });
 
       const deliveryOptionId = cartItem.deliveryOptionId; // make cart's deliverOption a global variable so that cartSummaryHTML can access it
-      let deliveryOption;
+      const deliveryOption = getDeliveryOption(deliveryOptionId)
       
-      deliveryOptions.forEach((option) => {
-        if(option.id === parseInt(deliveryOptionId)){
+      // deliveryOptions.forEach((option) => {
+      //   if(option.id === parseInt(deliveryOptionId)){
         
-          deliveryOption = option;
-        }
-      });
+      //     deliveryOption = option;
+      //   }
+      // });
     
-      let dateString = dayjs().add(deliveryOption.deliveryDays, 'days').format('dddd, MMMM D');
+      let dateString = dayjs()
+      .add(deliveryOption.deliveryDays, 'days').format('dddd, MMMM D');
       
 
     cartSummaryHTML += `
@@ -137,6 +140,7 @@ export function renderOrderSummary() {
         const {deliveryOptionId, productId} = ele.dataset; //destructuring
         updateDeliveryOption(deliveryOptionId, productId);
         renderOrderSummary();
+        renderPaymentSummary();
       })
     })
 
