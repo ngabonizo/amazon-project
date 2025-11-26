@@ -1,15 +1,21 @@
 // this get the cart from localStorage. JSON turns it back from string form because localeStorage only accepts strings
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
 
-//if there is not cart in localeStorage. Like when we first access the app, cart is null because of localStorage. So lets set cart default values
-if(!cart){
-   cart = [
-  {
-    productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-    quantity: 1,
-    deliveryOptionId: 2
+loadFromStorage();
+
+export function loadFromStorage(){
+  JSON.parse(localStorage.getItem('cart'));
+
+  //if there is not cart in localeStorage. Like when we first access the app, cart is null because of localStorage. So lets set cart default values
+  if(!cart){
+    cart = [
+    {
+      productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
+      quantity: 1,
+      deliveryOptionId: 2
+    }
+  ];
   }
-];
 }
 
 
