@@ -4,7 +4,7 @@ export let cart;
 loadFromStorage();
 
 export function loadFromStorage(){
-  JSON.parse(localStorage.getItem('cart'));
+  cart = JSON.parse(localStorage.getItem('cart')); //get the cart from localStorage
 
   //if there is not cart in localeStorage. Like when we first access the app, cart is null because of localStorage. So lets set cart default values
   if(!cart){
