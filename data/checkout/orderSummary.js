@@ -1,5 +1,5 @@
 import {cart,removeFromCart,updateDeliveryOption} from '../cart.js';
-import {products,getProduct} from '../products.js'
+import {getProduct} from '../products.js'
 import {moneyFormat} from '../utils/money.js';
 import {deliveryOptions, getDeliveryOption} from '../deliveryOptions.js';
 import {renderPaymentSummary} from '../checkout/paymentSummary.js'
@@ -37,7 +37,9 @@ export function renderOrderSummary() {
 
     cartSummaryHTML += `
 
-            <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+            <div class="cart-item-container 
+            js-cart-item-container
+            js-cart-item-container-${matchingProduct.id}">
                 <div class="delivery-date">
                   Delivery date: ${dateString}
                 </div>
@@ -53,14 +55,18 @@ export function renderOrderSummary() {
                     <div class="product-price">
                       $${moneyFormat(matchingProduct.priceCents)}
                     </div>
-                    <div class="product-quantity">
+                    <div class="product-quantity
+                    js-product-quantity-${matchingProduct.id}
+                    ">
                       <span>
                         Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                       </span>
                       <span class="update-quantity-link link-primary">
                         Update
                       </span>
-                      <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
+                      <span class="delete-quantity-link link-primary 
+                      js-delete-link-${matchingProduct.id}
+                      js-delete-link" data-product-id="${matchingProduct.id}">
                         Delete
                       </span>
                     </div>
